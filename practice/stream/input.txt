@@ -1,0 +1,4 @@
+Hi satyam
+How are you
+today you have created nodejs stream
+check3

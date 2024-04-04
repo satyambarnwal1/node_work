@@ -1,0 +1,61 @@
+npm i -D typescript
+
+npx tsc --init // it creates tsconfig.json file
+then uncomment and add parameters as per your use in this small 
+project I uncomment outdir.
+
+inside package.json add steps in script parameter. in my case
+"build": "rimraf dist && npx tsc", // remove all file in dist on every build 
+generation. (&& used for sequential)
+"prestart":"npm run build", // start building the project
+"start": "node dist/app.js", //run created js file
+"dev": "npx tsc -w & nodemon dist/app.js" // continous watch and
+(& used for concuurent execution)
+
+
+then npx tsc example.ts
+
+
+
+
+npm run start npm run dev npm run build
+
+
+
+{
+    "compilerOptions": {
+        "module": "commonjs"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+
+
+
+
+
+
+
+{
+  "name": "code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/app.js",
+    "serve": "npx tsc -w & node dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "rimraf": "^5.0.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "keywords": [],
+  "description": ""
+}
